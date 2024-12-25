@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ar">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>البوصلة - تحديد اتجاه القبلة</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-image: url(asasy.webp);
+            background-size: cover;
+            background-attachment: fixed;
+            color: white;
+            font-family: 'Tajawal', sans-serif;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .compass-container {
+            text-align: center;
+            padding: 30px;
+            border: 3px solid white;
+            border-radius: 10px;
+            background-color: rgba(0, 0, 0, 0.6);
+            font-size: 18px;
+            max-width: 90%;
+            margin: 0 auto;
+        }
+
+        #compass {
+            width: 150px;
+            height: 150px;
+            background-image: url('compass.png');
+            /* صورة البوصلة */
+            background-size: cover;
+            margin: 20px auto;
+            transform-origin: center;
+            transition: transform 0.2s ease-in-out;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #ff9900;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            background-color: #cc7a00;
+        }
+
+        .link-container {
+            margin-top: 15px;
+
+        }
+
+        .link-container a {
+
+            color: white;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .link-container a:hover {
+
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="compass-container">
+        <h3>البوصلة - تحديد اتجاه القبلة</h3>
+        <p id="qibla-direction">اتجاه القبلة: جاري الحساب...</p>
+        <p id="guidance">تحرك لتوجيه الجهاز نحو القبلة...</p>
+        <div id="compass"></div>
+        <button id="locate">تحديد موقعي</button>
+    </div>
+
+    <script>
+        const kabahLatitude = 21.4225; // دائرة عرض الكعبة
+        const kabahLongitude = 39.8262; // خط طول الكعبة
+
+        let qiblaDirection = 0;
+
+        function calculateQiblaDirection(lat, lon) {
+            const dLon = kabahLongitude - lon;
+            const y = Math.sin(dLon * Math.PI / 180) * Math.cos(kabahLatitude * Math.PI / 180);
+            const x = Math.cos(lat * Math.PI / 180) * Math.sin(kabahLatitude * Math.PI / 180) -
+                Math.sin(lat * Math.PI / 180) * Math.cos(kabahLatitude * Math.PI / 180) * Math.cos(dLon * Math.PI / 180);
+            const brng = Math.atan2(y, x) * (180 / Math.PI);
+            return (brng + 360) % 360; // الاتجاه بالدرجات
+        }
+
+        document.getElementById('locate').addEventListener('click', () => {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(position => {
+                    const userLat = position.coords.latitude;
+                    const userLon = position.coords.longitude;
+
+                    qiblaDirection = calculateQiblaDirection(userLat, userLon);
+
+                    document.getElementById('qibla-direction').textContent = `اتجاه القبلة: ${qiblaDirection.toFixed(2)}°`;
+                    document.getElementById('guidance').textContent = 'قم بتدوير جهازك لتوجيهه نحو القبلة.';
+                }, () => {
+                    alert('لم يتمكن المتصفح من تحديد موقعك. يرجى المحاولة مرة أخرى.');
+                });
+            } else {
+                alert('المتصفح الخاص بك لا يدعم تحديد الموقع الجغرافي.');
+            }
+        });
+
+        if (window.DeviceOrientationEvent) {
+            window.addEventListener('deviceorientation', event => {
+                const compass = document.getElementById('compass');
+                const alpha = event.alpha; // زاوية دوران الجهاز
+
+                if (qiblaDirection) {
+                    const rotation = (alpha - qiblaDirection + 360) % 360;
+                    compass.style.transform = `rotate(${rotation}deg)`;
+
+                    // تحديد التوجيه
+                    const difference = Math.abs(rotation);
+                    const guidance = document.getElementById('guidance');
+
+                    if (difference < 10) {
+                        guidance.textContent = 'أنت الآن مواجه للقبلة! 🌟';
+                    } else if (rotation > 0 && rotation <= 180) {
+                        guidance.textContent = 'تحرك قليلاً نحو اليمين ⬅️';
+                    } else {
+                        guidance.textContent = 'تحرك قليلاً نحو اليسار ➡️';
+                    }
+                }
+            });
+        } else {
+            alert('جهازك لا يدعم مستشعرات البوصلة.');
+        }
+    </script>
+
+    <div class="link-container">
+        <p><a href="informaton.html">الرجوع</a></p>
+    </div>
+
+
+    <div class="footer">
+        <p>
+            تابعنا على:
+            <a href="https://www.facebook.com/profile.php?id=100063496583427&locale=ar_AR"><img src="facebook.png"
+                    alt="فيسبوك" width="30" height="30"></a>
+            <a href="https://youtube.com/@cyber_senpai1?si=cN589g0DpZ5EOS_p"><img
+                    src="https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.png"
+                    alt="يوتيوب" width="30" height="30"></a>
+            <a href="https://t.me/Eng_mousab_Ahmed"><img src="telegram.webp" alt="تليجرام" width="30" height="30"></a>
+            <a href=""><img src="x.png" alt="إكس" width="30" height="30"></a>
+        </p>
+        <p>تطوير بواسطة: <strong> Mousab Ahmed</strong></p>
+        <p>&copy; 2024-2025 جميع الحقوق محفوظة</p>
+    </div>
+
+
+</body>
+
+</html>

@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="ar">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إرشاد</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-image: url(asasy.webp);
+            background-size: cover;
+            background-attachment: fixed;
+            color: white;
+            font-family: 'Tajawal', sans-serif;
+        }
+
+        .logo {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 60px;
+        }
+
+        .login-register {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 14px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .login-register a {
+            color: white;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 5px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .login-register a:hover {
+            background-color: #065311;
+        }
+
+
+        .info-container {
+            text-align: center;
+            margin: 100px auto;
+            padding: 20px;
+            border: 3px solid white;
+            border-radius: 10px;
+            background-color: rgba(0, 0, 0, 0.6);
+            display: inline-block;
+            transition: border-color 1s, box-shadow 0.5s;
+            font-size: 18px;
+        }
+
+        .info-container:hover {
+            box-shadow: 0 0 15px #fff;
+        }
+
+        #carouselExampleAutoplaying {
+            margin: 30px auto;
+            max-width: 600px;
+            max-height: 300px;
+        }
+
+        .carousel-inner img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            cursor: pointer;
+        }
+
+        .carousel-inner img:hover {
+            transform: scale(1.05);
+        }
+
+        .ai-container {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .ai-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .ai-bubble {
+            position: fixed;
+            bottom: 80px;
+            left: 20px;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 10px;
+            border-radius: 10px;
+            display: none;
+            width: 250px;
+        }
+
+        .footer {
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: 50px;
+        }
+
+        .footer a {
+            color: white;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            color: #444749;
+        }
+
+
+        .bottom-border {
+            padding: 10px;
+            border-top: 3px solid white;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <img src="asasy.webp" alt="شعار" class="logo">
+
+    <div class="login-register">
+        <a href="login.html">تسجيل الدخول</a>
+        <a href="sing.html">إنشاء حساب</a>
+    </div>
+
+
+    <div class="info-container">
+        <h3>موقع إرشاد</h3>
+        <p id="info-desc">إرشاد هو موقع يقدم القرآن الكريم كاملاً بأصوات أكثر من 100 قارئ. يحتوي على مكتبة إسلامية
+            وإذاعة القرآن الكريم وبث مباشر للحرم.</p>
+    </div>
+
+    <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <a href="page1.html"><img src="tany.webp" class="d-block w-100" alt="صورة 1"></a>
+            </div>
+            <div class="carousel-item">
+                <a href="page2.html"><img src="asasy.webp" class="d-block w-100" alt="صورة 2"></a>
+            </div>
+            <div class="carousel-item">
+                <a href="page3.html"><img src="eslam.jpg" class="d-block w-100" alt="صورة 3"></a>
+            </div>
+            <div class="carousel-item">
+                <a href="page4.html"><img src="sa7e7.jpg" class="d-block w-100" alt="صورة 4"></a>
+            </div>
+            <div class="carousel-item">
+                <a href="page5.html"><img src="ersha2.jpg" class="d-block w-100" alt="صورة 5"></a>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">السابق</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">التالي</span>
+        </button>
+    </div>
+
+    <div class="footer">
+        <p>
+            تابعنا على:
+            <a href="https://www.facebook.com/profile.php?id=100063496583427&locale=ar_AR"><img src="facebook.png"
+                    alt="فيسبوك" width="30" height="30"></a>
+            <a href="https://youtube.com/@cyber_senpai1?si=cN589g0DpZ5EOS_p"><img
+                    src="https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.png"
+                    alt="يوتيوب" width="30" height="30"></a>
+            <a href="https://t.me/Eng_mousab_Ahmed"><img src="telegram.webp" alt="تليجرام" width="30" height="30"></a>
+            <a href=""><img src="x.png" alt="إكس" width="30" height="30"></a>
+        </p>
+        <p>تطوير بواسطة: <strong> Mousab Ahmed</strong></p>
+        <p>&copy; 2024-2025 جميع الحقوق محفوظة</p>
+    </div>
+
+    <!-- AI Assistant -->
+    <div class="ai-container" id="ai-container">
+        <img src="manss.jpg" alt="AI Assistant" class="ai-icon">
+        <div class="ai-label">مساعد الذكاء الاصطناعي</div>
+    </div>
+    <div class="ai-bubble" id="ai-bubble">
+        جاري التحميل...
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js"></script>
+
+    <script>
+        const infoText = document.getElementById("info-desc");
+        const textArabic = "إرشاد هو موقع يقدم القرآن الكريم كاملاً بأصوات أكثر من 100 قارئ. يحتوي على مكتبة إسلامية وإذاعة القرآن الكريم وبث مباشر للحرم.";
+        const textEnglish = "Ershad is a website that offers the complete Quran recited by more than 100 reciters. It also contains an Islamic library, Quran Radio, and live broadcast from Al-Haram.";
+        setInterval(() => {
+            if (infoText.textContent === textArabic) {
+                infoText.textContent = textEnglish;
+            } else {
+                infoText.textContent = textArabic;
+            }
+        }, 15000);
+    </script>
+    <script>
+        // Dynamic Title Change
+        const titleElement = document.getElementById('dynamic-title');
+        let isArabic = true;
+        setInterval(() => {
+            titleElement.textContent = isArabic ? 'Your Path to Paradise' : 'طريقك إلى الفردوس';
+            isArabic = !isArabic;
+        }, 10000);
+
+        // AI Assistant Interaction
+        const aiContainer = document.getElementById('ai-container');
+        const aiBubble = document.getElementById('ai-bubble');
+
+        aiContainer.addEventListener('click', async () => {
+            // عرض الفقاعة مع رسالة "جاري التحميل..."
+            aiBubble.style.display = 'block';
+            aiBubble.textContent = 'جاري التحميل...';
+
+            // عرض رسالة قريبًا
+            setTimeout(() => {
+                aiBubble.textContent = 'سيتم إضافة هذه الميزة قريبًا بعد التعاون مع الأزهر الشريف.';
+            }, 10);  // بعد 2 ثانية
+        });
+    </script>
+</body>
+
+</html>

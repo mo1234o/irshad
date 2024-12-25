@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ar">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إرشاد</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-image: url('asasy.webp');
+            background-size: cover;
+            background-attachment: fixed;
+            color: rgb(218, 202, 202);
+            font-family: 'Tajawal', sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+        }
+
+        /* شريط الأخبار المتحرك */
+        .news-marquee {
+            width: 100%;
+            overflow: hidden;
+            position: absolute;
+            top: 0;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px 0;
+        }
+
+        .news-marquee-content {
+            display: flex;
+            animation: marquee 15s linear infinite;
+        }
+
+        .news-marquee-content img {
+            width: 100px;
+            margin: 0 20px;
+        }
+
+        @keyframes marquee {
+            0% {
+                transform: translateX(100%);
+            }
+
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        /* صورة البروفايل مع الرسالة */
+        .profile-container {
+            position: fixed;
+            top: 70px;
+            right: 20px;
+            text-align: center;
+        }
+
+        .profile-container img {
+            width: 60px;
+            height: 60px;
+            border-radius: 100%;
+            border: 2px solid rgb(0, 0, 0);
+            cursor: pointer;
+        }
+
+        .profile-container p {
+            margin-top: 10px;
+            font-size: 14px;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+
+        /* الفيديو */
+        #player {
+            text-align: center;
+
+            width: 80%;
+            /* تحديد عرض الفيديو كنسبة مئوية من عرض الشاشة */
+            max-width: 600px;
+            /* تحديد أقصى عرض */
+            height: 300px;
+            /* ارتفاع الفيديو */
+            margin: 30px auto;
+            /* توسيط الفيديو عموديًا وأفقيًا */
+            text-align: center;
+        }
+
+        /* شريط الأخبار المتحرك أسفل الفيديو */
+        .marquee-footer {
+            width: 100%;
+            overflow: hidden;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 1px;
+            text-align: center;
+            margin-top: 1px;
+        }
+
+        .marquee-footer p {
+            display: inline-block;
+            animation: marquee-footer 20s linear infinite;
+        }
+
+        @keyframes marquee-footer {
+            0% {
+                transform: translateX(100%);
+            }
+
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        /* الفوتر */
+        .footer {
+            background-color: rgba(0, 0, 0, 0.8);
+            color: rgb(252, 236, 236);
+            text-align: center;
+            padding: 10px;
+            margin-top: 10px;
+        }
+
+        .footer a {
+            color: rgb(0, 0, 0);
+            margin: 0 10px;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            color: #444749;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- شريط الأخبار المتحرك -->
+    <div class="news-marquee">
+        <div class="news-marquee-content">
+            <img src="asasy.webp" alt="خبر 1">
+            <img src="haram.jpeg" alt="خبر 2">
+            <img src="haram2.jpg" alt="خبر 3">
+            <img src="sa7e7.jpg" alt="خبر 4">
+        </div>
+    </div>
+
+    <!-- صورة البروفايل مع الرسالة -->
+    <div class="profile-container">
+        <a href="profile.html">
+            <img src="manss.jpg" alt="صورة البروفايل">
+        </a>
+        <p>مرحبا بك في موقع إرشاد!</p>
+    </div>
+
+    <!-- الفيديو (YouTube Live) -->
+    <div id="player"></div>
+
+    <!-- شريط الأخبار المتحرك أسفل الفيديو -->
+    <div class="marquee-footer">
+        <p>إذاعة القرآن الكريم من القاهرة</p>
+    </div>
+
+
+    <script>
+        // إعدادات YouTube Iframe API
+        function onYouTubeIframeAPIReady() {
+            new YT.Player('player', {
+                height: '450',
+                width: '100%',
+                videoId: 'BWJnJK9ZJY8', // استبدل برابط الفيديو المباشر
+                playerVars: {
+                    'autoplay': 1,
+                    'controls': 1,  // التحكم في الفيديو مثل YouTube
+                    'modestbranding': 0, // إزالة شعار YouTube
+                    'rel': 0,  // عدم عرض مقاطع الفيديو ذات الصلة بعد الفيديو
+                    'showinfo': 0,  // إخفاء تفاصيل الفيديو في البداية
+                    'mute': 0  // عدم كتم الصوت
+                }
+            });
+        }
+
+        // تحميل YouTube Iframe API
+        var tag = document.createElement('script');
+        tag.src = "https://www.youtube.com/iframe_api";
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+    </script>
+
+    <div class="footer">
+        <p>
+            تابعنا على:
+            <a href="https://www.facebook.com/profile.php?id=100063496583427&locale=ar_AR"><img src="facebook.png"
+                    alt="فيسبوك" width="30" height="30"></a>
+            <a href="https://youtube.com/@cyber_senpai1?si=cN589g0DpZ5EOS_p"><img
+                    src="https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.png"
+                    alt="يوتيوب" width="30" height="30"></a>
+            <a href="https://t.me/Eng_mousab_Ahmed"><img src="telegram.webp" alt="تليجرام" width="30" height="30"></a>
+            <a href=""><img src="x.png" alt="إكس" width="30" height="30"></a>
+        </p>
+        <p>تطوير بواسطة: <strong> Mousab Ahmed</strong></p>
+        <p>&copy; 2024-2025 جميع الحقوق محفوظة</p>
+    </div>
+</body>
+
+</html>

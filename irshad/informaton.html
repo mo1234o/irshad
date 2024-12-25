@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="ar">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>طريقك إلى الفردوس</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-image: url(tafser\ bg.jpg);
+            background-size: cover;
+            background-attachment: fixed;
+            color: white;
+            font-family: 'Tajawal', sans-serif;
+            position: relative;
+        }
+
+        /* شريط الأخبار المتحرك */
+        .news-marquee {
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            font-size: 20px;
+            padding: 10px;
+            text-align: center;
+            overflow: hidden;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .news-marquee-content {
+            display: inline-block;
+            white-space: nowrap;
+            animation: marquee 30s linear infinite;
+        }
+
+        @keyframes marquee {
+            0% {
+                transform: translateX(100%);
+            }
+
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        /* التأثيرات على الصور داخل الشريط */
+        .news-marquee img {
+            margin: 0 20px;
+            height: 50px;
+            /* ضبط الحجم ليكون مناسبًا للشريط */
+            vertical-align: middle;
+        }
+
+        .title-container {
+            text-align: center;
+            margin-top: 50px;
+            font-size: 30px;
+            font-weight: bold;
+            border: 5px solid white;
+            border-radius: 15px;
+            display: inline-block;
+            padding: 20px;
+            animation: glow 2s infinite alternate;
+        }
+
+        @keyframes glow {
+            0% {
+                box-shadow: 0 0 10px white;
+            }
+
+            100% {
+                box-shadow: 0 0 20px black;
+            }
+        }
+
+        .profile-container {
+            position: fixed;
+            top: 70px;
+            right: 20px;
+            text-align: center;
+        }
+
+        .profile-container img {
+            width: 60px;
+            height: 60px;
+            border-radius: 100%;
+            border: 2px solid white;
+            cursor: pointer;
+        }
+
+
+        .ai-container {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .ai-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .ai-bubble {
+            position: fixed;
+            bottom: 80px;
+            left: 20px;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 10px;
+            border-radius: 10px;
+            display: none;
+            width: 250px;
+        }
+
+        .content {
+            margin-top: 150px;
+            text-align: center;
+            font-size: 18px;
+        }
+
+        .btn {
+            margin: 20px;
+            padding: 12px 30px;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #4CAF50;
+            transform: scale(1.05);
+        }
+
+        .footer {
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: 50px;
+        }
+
+        .footer a {
+            color: white;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            color: #444749;
+        }
+
+        .back-btn {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .back-btn:hover {
+            background-color: #d6d1d0;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- شريط الأخبار المتحرك -->
+    <div class="news-marquee">
+        <div class="news-marquee-content">
+            <img src="asasy.webp" alt="خبر 1">
+            <img src="haram.jpeg" alt="خبر 2">
+            <img src="haram2.jpg" alt="خبر 3">
+            <img src="sa7e7.jpg" alt="خبر 4">
+            <img src="eslam.jpg" alt="خبر 4">
+            <img src="ersha2.jpg" alt="خبر 4">
+            <img src="manss.jpg" alt="خبر 4">
+            <img src="tafser bg.jpg" alt="خبر 4">
+            <img src="facebook.png" alt="خبر 4">
+            <img src="x.png" alt="خبر 4">
+            <img src="telegram.webp" alt="خبر 4">
+            <!-- أضف المزيد من الصور حسب الحاجة -->
+        </div>
+    </div>
+    <div class="profile-container">
+        <a href="profile.html">
+            <img src="prof.jpg" alt="صورة البروفايل">
+        </a>
+    </div>
+
+    <div class="title-container" id="dynamic-title" style="text-align: center;">
+        طريقك إلى الفردوس
+    </div>
+
+    <div class="content">
+        <a class='btn' href='ezaatqoran.html'>اذاعة القراءن الكريم </a>
+        <a class='btn' href='lestion'>قرآن كريم للاستماع</a>
+        <a class='btn' href='hades'>أحاديث نبويّة</a>
+        <a class='btn' href='posla.html'>اتجاه القبلة</a>
+        <a class='btn' href='taqwem.html'>التقويم الهجري</a>
+        <a class='btn' href='fetwa'>الحصول على فتوى</a>
+        <a class='btn' href='azhar'>التواصل مع الأزهر الشريف</a>
+        <a class='btn' href='qouran'>المصحف الكامل</a>
+        <a class='btn' href='tafser.html'>تفسير المصحف</a>
+        <a class='btn' href='faq'>الأسئلة والاستفسار</a>
+    </div>
+
+    <div class="footer">
+        <p>
+            تابعنا على:
+            <a href="https://www.facebook.com/profile.php?id=100063496583427&locale=ar_AR"><img src="facebook.png"
+                    alt="فيسبوك" width="30" height="30"></a>
+            <a href="https://youtube.com/@cyber_senpai1?si=cN589g0DpZ5EOS_p"><img
+                    src="https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.png"
+                    alt="يوتيوب" width="30" height="30"></a>
+            <a href="https://t.me/Eng_mousab_Ahmed"><img src="telegram.webp" alt="تليجرام" width="30" height="30"></a>
+            <a href=""><img src="x.png" alt="إكس" width="30" height="30"></a>
+        </p>
+        <p>تطوير بواسطة: <strong> Mousab Ahmed</strong></p>
+        <p>&copy; 2024-2025 جميع الحقوق محفوظة</p>
+    </div>
+
+    <!-- AI Assistant -->
+    <div class="ai-container" id="ai-container">
+        <img src="manss.jpg" alt="AI Assistant" class="ai-icon">
+        <div class="ai-label">مساعد الذكاء الاصطناعي</div>
+    </div>
+    <div class="ai-bubble" id="ai-bubble">
+        جاري التحميل...
+    </div>
+
+
+    <!-- Back Button -->
+    <a class='back-btn' href='home.html'>رجوع</a>
+
+    <script>
+        // Dynamic Title Change
+        const titleElement = document.getElementById('dynamic-title');
+        let isArabic = true;
+        setInterval(() => {
+            titleElement.textContent = isArabic ? 'Your Path to Paradise' : 'طريقك إلى الفردوس';
+            isArabic = !isArabic;
+        }, 10000);
+
+        // AI Assistant Interaction
+        const aiContainer = document.getElementById('ai-container');
+        const aiBubble = document.getElementById('ai-bubble');
+
+        aiContainer.addEventListener('click', async () => {
+            // عرض الفقاعة مع رسالة "جاري التحميل..."
+            aiBubble.style.display = 'block';
+            aiBubble.textContent = 'جاري التحميل...';
+
+            // عرض رسالة قريبًا
+            setTimeout(() => {
+                aiBubble.textContent = 'سيتم إضافة هذه الميزة قريبًا بعد التعاون مع الأزهر الشريف.';
+            }, 10);  // بعد 2 ثانية
+        });
+    </script>
+</body>
+
+</html>
